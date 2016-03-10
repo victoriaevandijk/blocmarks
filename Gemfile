@@ -20,6 +20,7 @@
  gem 'figaro'
  gem 'pry'
  gem 'bootstrap-sass'
+ gem 'devise'
 
  group :development, :test do
    gem 'byebug'
