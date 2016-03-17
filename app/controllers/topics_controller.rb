@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+
   def index
     @topics = Topic.all
   end
@@ -51,4 +52,14 @@ class TopicsController < ApplicationController
        render :show
      end
   end
+    
+    private
+    
+    def find_topic
+        @topic = Topic.find(params[:id])
+    end
+    
+    def topic_params
+        params.require(:topic).permit(:title)
+    end
 end

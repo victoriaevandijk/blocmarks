@@ -11,7 +11,7 @@
         <div class="media-body">
           <h4 class="media-heading">
             <%= link_to bookmark.url, bookmark.url, :target => '_blank' %>  <%= link_to "Edit", edit_topic_bookmark_path(@topic, bookmark), class: 'btn btn-success' %> 
-            <%= link_to "Delete", bookmark.topic, method: :delete, class: 'btn btn-danger' %>
+            <%= link_to "Delete", topic_bookmark_path(bookmark.topic, bookmark), method: :delete, class: 'btn btn-danger' %>
           </h4>
         </div>
       </div>
