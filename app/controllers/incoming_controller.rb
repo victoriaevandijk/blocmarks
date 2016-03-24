@@ -8,6 +8,7 @@ class IncomingController < ApplicationController
     # You put the message-splitting and business
     # magic here.
      # Find the user by using params[:sender]
+     raise params.inspect
      @user = User.find_by(email: params[:sender])
     
      # Find the topic by using params[:subject]
