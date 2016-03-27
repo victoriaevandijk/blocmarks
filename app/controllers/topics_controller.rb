@@ -2,11 +2,14 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.all
+    #@bookmarks = Topic.bookmarks.visable_to(current_user)
+    #authorize @topics
   end
 
   def show
     @topic = Topic.find(params[:id])
     @bookmarks = @topic.bookmarks
+    #authorize @bookmarks
   end
 
   def new

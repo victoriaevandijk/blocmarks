@@ -1,7 +1,14 @@
 <center><h1><%= @topic.title %></h1></center>
-<center><%= link_to "Edit", edit_topic_path(@topic), class: 'btn btn-success' %> <%= link_to "Delete", @topic, method: :delete, class: 'btn btn-danger' %></center>
+<center>
+  <% if policy(@topic).edit? %>
+  <%= link_to "Edit", edit_topic_path(@topic), class: 'btn btn-success' %> 
+  <%= link_to "Delete", @topic, method: :delete, class: 'btn btn-danger' %>
+  <% end %>
+</center>
 <br>
+<% if policy(Topic).create? %>
 <%= link_to "Add new bookmark", new_topic_bookmark_path(@topic), class: 'btn btn-success' %>
+<% end %>
 <br>
 <br>
 <div class="row">
@@ -10,8 +17,11 @@
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to bookmark.url, bookmark.url, :target => '_blank' %>  <%= link_to "Edit", edit_topic_bookmark_path(@topic, bookmark), class: 'btn btn-success' %> 
+            <%= link_to bookmark.url, bookmark.url, :target => '_blank' %> 
+            <% if policy(bookmark).update? %>
+            <%= link_to "Edit", edit_topic_bookmark_path(@topic, bookmark), class: 'btn btn-success' %> 
             <%= link_to "Delete", topic_bookmark_path(bookmark.topic, bookmark), method: :delete, class: 'btn btn-danger' %>
+            <% end %>
           </h4>
         </div>
       </div>
