@@ -1,13 +1,17 @@
 class LikesController < ApplicationController
-   @bookmark = Bookmark.find(params[:bookmark_id])
-   like = current_user.likes.build(bookmark: @bookmark)
+
+
+    def create
+        @bookmark = Bookmark.find(params[:bookmark_id])
+        like = current_user.likes.build(bookmark: @bookmark)
    
-     if like.save
-       redirect_to @bookmark.topic
-     else
-       redirect_to @bookmark.topic
-     end
-   end
+        if like.save
+            redirect_to @bookmark.topic
+        else
+            redirect_to @bookmark.topic
+        end
+    end
+        
 
    def destroy
       like = Like.find(params[:id])
@@ -18,4 +22,5 @@ class LikesController < ApplicationController
      else
        redirect_to @bookmark.topic
      end
+   end
 end
