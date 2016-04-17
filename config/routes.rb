@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/show'
+
   get 'likes/index'
 
   resources :topics do
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+  resources :users, only: [:show]
   
   get 'welcome/index'
 
