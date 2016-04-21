@@ -1,4 +1,5 @@
 class Topics::BookmarksController < ApplicationController
+
   def show
     @topic.find(params[:topic_id])
     @bookmarks = @topic.bookmarks
@@ -23,7 +24,7 @@ class Topics::BookmarksController < ApplicationController
        flash[:error] = "Error creating bookmark. Please try again."
        render :new
      end
-   end
+  end
 
   def edit
     @topic = Topic.find(params[:topic_id])

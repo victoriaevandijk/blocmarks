@@ -22,6 +22,8 @@
  gem 'bootstrap-sass'
  gem 'devise'
  gem 'pundit'
+ gem 'will_paginate-bootstrap'
+ gem 'embedly'
 
  group :development, :test do
    gem 'byebug'

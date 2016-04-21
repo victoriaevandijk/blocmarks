@@ -2,6 +2,7 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.all
+    @topics = Topic.paginate(:page => params[:page], :per_page => 5)
     #@bookmarks = Topic.bookmarks.visable_to(current_user)
     #authorize @topics
   end
