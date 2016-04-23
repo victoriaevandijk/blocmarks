@@ -5,19 +5,22 @@
 </h1>
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-lg-12">
     <%= will_paginate @topics, renderer: BootstrapPagination::Rails %>
     <% @topics.each do |topic| %>
       <div class="media">
         <div class="media-body">
-          <h4 class="media-heading">
-            <%= link_to "##{topic.title}", topic %>
+          <h3><%= link_to "#{topic.title}", topic %></h3>
+          <h5 class="media-heading">
               <br>
               <br>
               <% topic.bookmarks.each do |bookmark| %>
-                <%= image_tag(bookmark.thumbnail_url) %>
-                <%= link_to bookmark.title, bookmark.url, :target => '_blank' %>
+              <p class="cards">
+                <%= link_to image_tag(bookmark.thumbnail_url, :width => 170, :height => 170), bookmark.url, :target => '_blank' %><br>
+                <%= truncate(bookmark.title, :length => 30) %><br>
+                <%= link_to truncate(bookmark.url, :length => 20), bookmark.url, :target => '_blank' %><br>
                 <br>
+                </p>
               <% end %>
           </h4>
         </div>

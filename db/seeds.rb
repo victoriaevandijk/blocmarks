@@ -14,6 +14,8 @@ require 'faker'
    )
  end
  
+ 
+ 
 puts "Seeds finished"
 puts "#{Topic.count} topics created"
 puts "#{Bookmark.count} bookmarks created"
