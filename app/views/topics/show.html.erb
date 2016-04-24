@@ -1,4 +1,4 @@
-<center><h1><%= @topic.title %></h1></center>
+<center><h1><h3><%= link_to "#{@topic.title}", topics_path %></h3></h1></center>
 <center>
   <% if policy(@topic).edit? %>
   <%= link_to "Edit", edit_topic_path(@topic), class: 'btn btn-success' %> 
@@ -12,17 +12,21 @@
 <br>
 <br>
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <% @bookmarks.each do |bookmark| %>  
+    <div class="show">
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to bookmark.url, bookmark.url, :target => '_blank' %> 
+            <%= link_to image_tag(bookmark.thumbnail_url, :width => 170, :height => 170), bookmark.url, :target => '_blank' %><br>
+            <%= truncate(bookmark.title, :length => 30) %><br>
+            <%= link_to bookmark.url, bookmark.url, :target => '_blank' %> <br>
             <%= render partial: 'likes/like', locals: { topic: @topic, bookmark: bookmark } %>
             <% if policy(bookmark).update? %>
             <%= link_to "Edit", edit_topic_bookmark_path(@topic, bookmark), class: 'btn btn-success' %> 
             <%= link_to "Delete", topic_bookmark_path(bookmark.topic, bookmark), method: :delete, class: 'btn btn-danger' %>
             <% end %>
+    </div>
           </h4>
         </div>
       </div>
