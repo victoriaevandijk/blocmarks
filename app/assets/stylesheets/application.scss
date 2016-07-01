@@ -29,7 +29,30 @@
    text-align: center;
    width: 200px;
    height: 200px;
-   background:  #ffccff;
+}
+
+.tilt {
+  -webkit-transition: all 0.3s ease;
+     -moz-transition: all 0.3s ease;
+       -o-transition: all 0.3s ease;
+      -ms-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+   float: left; 
+   margin: 20px;
+   text-align: center;
+   width: 200px;
+   height: 200px;
+}
+
+.tilt:hover {
+  -webkit-transform: scale(1.25);
+  -moz-transform: scale(1.25);
+  -ms-transform: scale(1.25);
+  -o-transform: scale(1.25);
+   transform: scale(1.25);
+  -webkit-box-shadow: 0 0 40px rgba(255,255,255,.6), inset 0 0 40px rgba(255,255,255,1);
+  -moz-box-shadow: 0 0 40px rgba(255,255,255,.6), inset 0 0 40px rgba(255,255,255,1);
+   box-shadow: 0 0 40px rgba(255,255,255,.6), inset 0 0 40px rgba(255,255,255,1);
 }
 
 .show {
