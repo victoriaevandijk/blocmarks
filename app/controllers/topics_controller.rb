@@ -56,6 +56,12 @@ class TopicsController < ApplicationController
        render :show
      end
   end
+  
+  def search
+      @q = "%#{params[:query]}%"
+      @topics = Topic.where("title LIKE ?", @q)
+      render "topics"
+  end
     
     private
     

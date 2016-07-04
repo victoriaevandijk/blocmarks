@@ -5,7 +5,7 @@
      <%= form_for [@topic, @bookmark], url: topic_bookmarks_path do |f| %>
        <div class="form-group">
          <%= f.label :url %>
-         <%= f.text_field :url, class: 'form-control', placeholder: "Enter complete url" %>
+         <%= f.text_field :url, class: 'form-control', placeholder: "Enter complete url including 'http://www.'" %>
        </div>
        <div class="form-group">
          <%= f.submit "Save", class: 'btn btn-success' %>
