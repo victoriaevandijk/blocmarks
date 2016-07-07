@@ -89,12 +89,69 @@ figure {
     white-space:nowrap
 }
 
+.left {
+    margin: 0 10px 10px 0;
+}
+
+.right {
+    margin: 0 -30px 10px 50px;
+    border: none;
+}
+
 * {
 margin: 0;
 padding: 0;
 list-style-type:none;
 }
-
+header {
+	height:40px;
+	width: 100%;
+	position:fixed;
+	background:rgba(0,0,0,0.9);
+	margin: 0 0 0 -105px;
+	z-index:120;
+}
+header li {
+	float: left;
+	list-style-type:none;
+	border-right: 1px solid #252525;
+}
+header li a {
+	float: left;
+	width: 98px;
+	height: 12px;
+	padding: 14px 7px;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 1px;
+	font: normal 62.5% "proxima-nova-alt", Helvetica, Arial, sans-serif;
+}
+header .logo {
+	float: left;
+	width: 201px;
+	height: 40px;
+	background:#fde624 url('https://www.facebook.com/photo.php?fbid=10210115587148548&l=9ada28e448') no-repeat 16px 1px;
+}
+#show-nails:hover div.thumbnail-peekaboo {
+	display:block;
+}
+header div.thumbnail-peekaboo {
+	display:none;
+	height:165px;
+	width:3000px;
+	top:40px;
+	left:0;
+	background:#222;
+	background-size:100px 100px;
+	position:absolute;
+}
+/*header div.thumbnail-peekaboo:hover {
+	-webkit-animation: TMNT 4s ease-in;
+	-webkit-animation-fill-mode:backwards;
+}*/
 .thumb {
 	height:140px;
 	width:210px;
@@ -144,12 +201,11 @@ a.prev:hover,a.next:hover {
 	background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -200px 25px;
 }
 .next {
-	right:-90px;
+	right:0;
 	background: #000 url('https://lh4.googleusercontent.com/-JN1IZLtuToI/UUoZnMG3C_I/AAAAAAAAAE8/SEbJ9nqXGnY/s226/sprite.png') no-repeat -167px 25px;
 }
 .slider {
 	height:100vh;
-	left: -50px;
 	position: relative;
 }
 .slide {

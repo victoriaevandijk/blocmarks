@@ -1,8 +1,13 @@
 class TopicsController < ApplicationController
 
   def index
-    @topics = Topic.all
-    @topics = Topic.paginate(:page => params[:page], :per_page => 5)
+    if params[:q].present?
+        @topics = Topic.where("topics.title LIKE ?", params[:q])
+        # raise @topics.inspect
+    else
+        @topics = Topic.all
+    end
+    @topics = @topics.paginate(:page => params[:page], :per_page => 5)
     #@bookmarks = Topic.bookmarks.visable_to(current_user)
     #authorize @topics
   end
@@ -55,12 +60,6 @@ class TopicsController < ApplicationController
        flash[:error] = "There was an error deleting the topic."
        render :show
      end
-  end
-  
-  def search
-      @q = "%#{params[:query]}%"
-      @topics = Topic.where("title LIKE ?", @q)
-      render "topics"
   end
     
     private

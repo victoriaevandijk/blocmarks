@@ -3,6 +3,9 @@
 <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
 <% end %>
 </h1>
+<%= form_tag topics_path, :method => 'get' do %>
+<p><%= text_field_tag(:q) %><%= submit_tag "Search" %></p>
+<% end %>
 <div class="row">
     <%= will_paginate @topics, renderer: BootstrapPagination::Rails %>
     <% @topics.each do |topic| %>
